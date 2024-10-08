@@ -2,6 +2,7 @@ let input = document.getElementById('inputBox');
 let buttons = document.querySelectorAll('button');
 
 let string = "";
+let memory = 0;
 let operators = ['+', '-', '*', '/', '%'];
 
 Array.from(buttons).forEach(button => {
@@ -25,6 +26,18 @@ Array.from(buttons).forEach(button => {
         } else if (value === 'DEL') {
             string = string.substring(0, string.length - 1);
             input.value = string;
+        } else if (value === '√') {
+            string = Math.sqrt(parseFloat(string)).toString();
+            input.value = string;
+        } else if (value === 'M+') {
+            memory += parseFloat(input.value);
+        } else if (value === 'M-') {
+            memory -= parseFloat(input.value);
+        } else if (value === 'MR') {
+            input.value = memory.toString();
+            string = memory.toString();
+        } else if (value === 'MC') {
+            memory = 0;
         } else {
             if (operators.includes(value) && operators.includes(string[string.length - 1])) {
                 return;

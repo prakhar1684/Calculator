@@ -55,9 +55,8 @@ button{
 
 .equalbtn{
     background-color: #fb7c14;
-
 }
 
-.operator{
+.operator, .memory{
     color: #6dee0a;
 }
